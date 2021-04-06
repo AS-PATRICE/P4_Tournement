@@ -2,15 +2,14 @@ from models.players import Player
 from controllers.player_controller import PlayerController
 
 
-player = Player(last_name=["last_name"], first_name=["first_name"], born=["born"], gender=["gender"])
-
 
 class PlayerView:
     """
 
     """
     def __init__(self):
-        pass
+        self.Player = Player(last_name=["last_name"], first_name=["first_name"], born=["born"], gender=["gender"])
+        self.PlayerController = PlayerController()
 
     def choice_menu_player(self):
 
@@ -23,25 +22,38 @@ class PlayerView:
             print("Update players ............... 4")
             print("Return to the main menu....... R")
             print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
+
             choice = input("Your choice : ")
-            # gestion du choix
+
             if choice == "1":
-                last_name = (input("Player last name : "))
-                first_name = (input("Player first name : "))
-                born = (input("Player birth date : "))
-                gender = (input("Player gender : "))
-                player.save_player(last_name, first_name, born, gender)
+
+                def create_player(self):
+                    last_name = (input("Player last name : "))
+                    first_name = (input("Player first name : "))
+                    born = (input("Player birth date : "))
+                    gender = (input("Player gender : "))
+                    player = PlayerController.save_player(last_name, first_name, born, gender)
+                    PlayerController.serializes_player(player)
+                    print("The player {}, {} was registred".format(last_name, first_name))
+
+                    pass
 
             elif choice == "2":
-                player.show_all_player()
+                PlayerController.show_all_player()
+
+                pass
 
             elif choice == "3":
                 last_name = str(input("Player last name : "))
                 first_name = str(input("Player first name : "))
-                player.search_player_by_first_name(last_name, first_name)
+                PlayerController.search_player(last_name, first_name)
 
-            elif choice == "4":
-                print("Update player")
+                pass
+
             else:
                 choice = False
-                print("Return to the main menu")
+
+if __name__ == '__main__':
+    joueur = PlayerView()
+    joueur.choice_menu_player()

@@ -1,3 +1,4 @@
+from models.main_models import MainModel
 from controllers.main_controller import MainController
 from views.main_view import MainView
 
