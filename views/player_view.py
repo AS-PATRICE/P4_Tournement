@@ -8,8 +8,18 @@ class PlayerView:
 
     """
     def __init__(self):
-        self.Player = Player(last_name=["last_name"], first_name=["first_name"], born=["born"], gender=["gender"])
-        self.PlayerController = PlayerController()
+        #self.Player = Player()
+        #self.PlayerController = PlayerController()
+        pass
+
+    def create_player(self):
+        last_name = (input("Player last name : "))
+        first_name = (input("Player first name : "))
+        born = (input("Player birth date : "))
+        gender = (input("Player gender : "))
+        #player = PlayerController.save_player(last_name, first_name, born, gender)
+        player = Player(last_name, first_name, born, gender)
+        PlayerController.save_player(player)
 
     def choice_menu_player(self):
 
@@ -28,28 +38,20 @@ class PlayerView:
 
             if choice == "1":
 
-                def create_player(self):
-                    last_name = (input("Player last name : "))
-                    first_name = (input("Player first name : "))
-                    born = (input("Player birth date : "))
-                    gender = (input("Player gender : "))
-                    player = PlayerController.save_player(last_name, first_name, born, gender)
-                    PlayerController.serializes_player(player)
-                    print("The player {}, {} was registred".format(last_name, first_name))
+               self.create_player()
 
-                    pass
+
 
             elif choice == "2":
                 PlayerController.show_all_player()
 
-                pass
+
 
             elif choice == "3":
                 last_name = str(input("Player last name : "))
                 first_name = str(input("Player first name : "))
                 PlayerController.search_player(last_name, first_name)
 
-                pass
 
             else:
                 choice = False

@@ -8,32 +8,19 @@ class PlayerController:
 
     """
     def __init__(self):
-        self.player = Player()
+        pass
 
 
-    def serializes_player(self, player):
-        serialized_player = {
-            "last_name": player.last_name,
-            "first_name": player.firs_name,
-            "born": player.born,
-            "gender": player.gender,
-            "score": player.score,
-            "base_Ranking": player.baseRanking,
-            "ranking": player.gender
-        }
-
-        db = TinyDB("ddb/db.json")
+    @staticmethod
+    def save_player(player):
+        db = TinyDB("../ddb/db.json")
         players_table = db.table("players")
-        players_table.insert(serialized_player)
+        results = players_table.search(where("last_name") == player.last_name and where("first_name") == player.first_name)
 
-
-
-    def save_player(self, last_name, first_name, born, gender):
-        db = TinyDB("ddb/db.json")
-        players_table = db.table("players")
-        results = players_table.search(where("last_name") == last_name and where(first_name) == first_name)
         if len(results) == 0:
-            players_table.insert({"last_name": last_name, "first_name": first_name, "born": born, "gender": gender})
+            print(player.serialize_player())
+            #players_table.insert({"last_name": last_name, "first_name": first_name, "born": born, "gender": gender})
+            players_table.insert(player.serialize_player())
         else:
             print("the player has been registered successfully")
 
