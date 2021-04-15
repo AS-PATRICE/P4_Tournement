@@ -8,6 +8,6 @@ class MainView:
 
     """
     def __init__(self):
-        self.PlayerVieuw = PlayerView()
-        self.TournamentVieuw = TournamentView()
-        self.ReportView = ReportView()
+        self.playerVieuw = PlayerView()
+        self.tournamentVieuw = TournamentView()
+        self.reportView = ReportView()

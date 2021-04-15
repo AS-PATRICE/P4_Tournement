@@ -8,18 +8,9 @@ class PlayerView:
 
     """
     def __init__(self):
-        #self.Player = Player()
-        #self.PlayerController = PlayerController()
+        # self.Player = Player()
+        # self.PlayerController = PlayerController()
         pass
-
-    def create_player(self):
-        last_name = (input("Player last name : "))
-        first_name = (input("Player first name : "))
-        born = (input("Player birth date : "))
-        gender = (input("Player gender : "))
-        #player = PlayerController.save_player(last_name, first_name, born, gender)
-        player = Player(last_name, first_name, born, gender)
-        PlayerController.save_player(player)
 
     def choice_menu_player(self):
 
@@ -38,14 +29,10 @@ class PlayerView:
 
             if choice == "1":
 
-               self.create_player()
-
-
+               PlayerController.create_player(self)
 
             elif choice == "2":
-                PlayerController.show_all_player()
-
-
+                PlayerController.show_all_player(self)
 
             elif choice == "3":
                 last_name = str(input("Player last name : "))
@@ -56,6 +43,6 @@ class PlayerView:
             else:
                 choice = False
 
-if __name__ == '__main__':
-    joueur = PlayerView()
-    joueur.choice_menu_player()
+# if __name__ == '__main__':
+#     joueur = PlayerView()
+#     joueur.choice_menu_player()

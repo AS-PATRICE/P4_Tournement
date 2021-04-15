@@ -24,6 +24,17 @@ class PlayerController:
         else:
             print("the player has been registered successfully")
 
+
+    def create_player(self):
+        last_name = (input("Player last name : "))
+        first_name = (input("Player first name : "))
+        born = (input("Player birth date : "))
+        gender = (input("Player gender : "))
+        player = Player(last_name, first_name, born, gender)
+        PlayerController.save_player(player)
+
+
+
     def show_all_player(self):
         db = TinyDB("ddb/db.json")
         players_table = db.table("players")
