@@ -1,5 +1,5 @@
-from models.main_models import Player
-from tinydb import TinyDB, where, Query
+from tinydb import TinyDB
+
 
 class DataBase:
     """

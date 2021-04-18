@@ -30,10 +30,3 @@ class TournamentController:
         tournament = Tournament(tour_name, place, start_date, end_date, time_control, description)
         TournamentController.save_tournament(tournament)
 
-
-
-
-
-if __name__ == '__main__':
-    tournois = TournamentController()
-    tournois.create_tournament()
