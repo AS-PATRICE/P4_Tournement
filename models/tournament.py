@@ -15,6 +15,19 @@ class Tournament:
         self.players = 0
         self.round = 0
 
+    # def __init__(self, **kwargs):
+    #     self.tour_name = None
+    #     self.place = None
+    #     self.start_date = None
+    #     self.end_date = None
+    #     self.time_control = None
+    #     self.description = None
+    #     self.players = []
+    #     self.round = []
+    #     if kwargs:
+    #         for attr_key, attr_value in kwargs.items():
+    #             setattr( self, attr_key, attr_value)
+
 
     def serialize_tournament(self):
         serialized_tournament = {

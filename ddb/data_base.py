@@ -22,12 +22,3 @@ class DataBase:
         db = TinyDB("ddb/db.json")
         players_table = db.table("players")
         players_table.insert(serialized_player)
-
-    last_name = (input("Player last name : "))
-    first_name = (input("Player first name : "))
-    born = (input("Player birth date : "))
-    gender = (input("Player gender : "))
-
-    player = Player(last_name, first_name, born, gender)
-
-    serializes_player(player)

@@ -12,3 +12,20 @@ class Round:
         self.starDate = starDate
         self.endDate = endDate
         self.tourName = tourName
+
+
+if choice == "1":
+
+    PlayerController.create_player(self)
+
+elif choice == "2":
+    PlayerController.show_all_player(self)
+
+elif choice == "3":
+    last_name = str(input("Player last name : "))
+    first_name = str(input("Player first name : "))
+    PlayerController.search_player(last_name, first_name)
+
+
+else:
+    choice = False
