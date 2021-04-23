@@ -20,7 +20,7 @@ class MainView:
         print("[2] Manage player ................ 1")
         print("[3] Manage reports ............... 3")
         print("[4] Clean board .................. 4")
-        print("[O] leave the programme............O")
+        print("[L] leave the programme............L")
         choice = input("Your choice : ")
         print("")
         return choice

@@ -16,9 +16,9 @@ class PlayerController:
         db = TinyDB("./ddb/db.json")
         players_table = db.table("players")
         results = players_table.search(where("last_name") == player.last_name and where("first_name") == player.first_name)
-
+        print(results)
         if len(results) == 0:
-            print(player.serialize_player())
+            player.serialize_player()
             players_table.insert(player.serialize_player())
 
         else:
@@ -28,11 +28,10 @@ class PlayerController:
     def create_player(self):
         last_name = (input("Player last name : "))
         first_name = (input("Player first name : "))
-        born = (input("Player birth date : "))
+        birth_date = (input("Player birth date : "))
         gender = (input("Player gender : "))
-        player = Player(last_name, first_name, born, gender)
+        player = Player(last_name, first_name, birth_date, gender)
         PlayerController.save_player(player)
-
 
 
     def show_all_player(self):
@@ -44,7 +43,7 @@ class PlayerController:
             print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
             print("last_name:", player["last_name"])
             print("first_name:", player["first_name"])
-            print("born:", player["born"])
+            print("birth_date:", player["birth_date"])
             print("gender:", player["gender"])
             #print("ranking:", player["ranking"])
             print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
@@ -57,7 +56,7 @@ class PlayerController:
             print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
             print("last_name:", player["last_name"])
             print("first_name:", player["first_name"])
-            print("born:", player["born"])
+            print("birth_date:", player["birth_date"])
             print("gender:", player["gender"])
             print("ranking:", player["ranking"])
             print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")

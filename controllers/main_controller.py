@@ -1,9 +1,11 @@
 from views.main_view import MainView
-from ddb.main_models import MainModel
+from models.main_models import MainModel
 from .player_controller import PlayerController
 from .tournament_controller import TournamentController
 from .report_controller import ReportController
 from views.player_view import PlayerView
+import sys
+import os
 
 class MainController:
     """
@@ -18,13 +20,12 @@ class MainController:
         self.main_model = MainModel()
         self.view = MainView()
         self.playerView = PlayerView()
-        #self.start()
 
 
     def start(self):
         """ Point de lancement du programme """
         choice = "x"
-        while choice != "o" or choice != "O":
+        while choice != "l" or choice != "L":
             choice = self.view.main_menu()
             if choice == "1":
                 self.manage_menu_tournament()
@@ -32,11 +33,16 @@ class MainController:
                 self.manage_menu_player()
             elif choice == "3":
                 self.manage_menu_report()
+            elif choice == "4":
+                self.clear()
             else:
                 print("Good bye !)")
                 break
-            print()
 
+    @classmethod
+    def clear(cls):
+        """Methode to clean board"""
+        os.system('clear')
 
     def manage_menu_tournament(self):
         """ Methode to mange choice menu tournament """

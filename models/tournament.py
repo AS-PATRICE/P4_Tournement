@@ -1,3 +1,4 @@
+from .main_models import MainModel
 
 class Tournament:
     """
@@ -5,28 +6,32 @@ class Tournament:
     Cette classe doit permettre la sauvegarde des enregistrement des joueurs dans la base-de-donnée players
     """
 
-    def __init__(self, tour_name, place, start_date, end_date, time_control, description, players = 0, round = 0):
+    def __init__(self, tour_name, place, start_date, end_date, description, time_control=None, number_of_player=None, player_list=[], round_list=[], results=[]):
         self.tour_name = tour_name
         self.place = place
         self.start_date = start_date
         self.end_date = end_date
-        self.time_control = time_control
         self.description = description
-        self.players = 0
-        self.round = 0
+        self.time_control = None
+        self.number_of_player = None
+        self.player_list = []
+        self.round_list = []
+        self.results = []
 
-    # def __init__(self, **kwargs):
-    #     self.tour_name = None
-    #     self.place = None
-    #     self.start_date = None
-    #     self.end_date = None
+    # def __init__(self, tour_name, place, start_date, end_date, description, **kwargs):
+    #     self.id = None
+    #     self.num = None
+    #     self.tour_name = tour_name
+    #     self.place = place
+    #     self.start_date = start_date
+    #     self.end_date = end_date
     #     self.time_control = None
-    #     self.description = None
+    #     self.description = description
     #     self.players = []
     #     self.round = []
     #     if kwargs:
     #         for attr_key, attr_value in kwargs.items():
-    #             setattr( self, attr_key, attr_value)
+    #             setattr(self, attr_key, attr_value)
 
 
     def serialize_tournament(self):
@@ -37,8 +42,10 @@ class Tournament:
             "end_date": self.end_date,
             "time_control": self.time_control,
             "description": self.description,
-            "players": self.players,
-            "round": self.round
+            "number_of_player": self.number_of_player,
+            "player_list": self.player_list,
+            "round_list": self.round_list,
+            "results": self.results
         }
         return serialized_tournament
 
