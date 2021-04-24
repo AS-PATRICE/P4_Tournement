@@ -6,14 +6,14 @@ class Tournament:
     Cette classe doit permettre la sauvegarde des enregistrement des joueurs dans la base-de-donnée players
     """
 
-    def __init__(self, tour_name, place, start_date, end_date, description, time_control=None, number_of_player=None, player_list=[], round_list=[], results=[]):
+    def __init__(self, tour_name, place, start_date, end_date, description, time_control=None, number_of_player=8, player_list=[], round_list=[], results=[]):
         self.tour_name = tour_name
         self.place = place
         self.start_date = start_date
         self.end_date = end_date
         self.description = description
         self.time_control = None
-        self.number_of_player = None
+        self.number_of_player = 8
         self.player_list = []
         self.round_list = []
         self.results = []

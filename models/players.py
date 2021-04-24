@@ -6,15 +6,15 @@ class Player:
 
 
 
-    def __init__(self, last_name, first_name, birth_date, gender, score=None, ranking=None, tournament_points= 0.0, tournament_list=[], opponents=[]):
+    def __init__(self, last_name, first_name, birth_date, gender, score=0.0, ranking=None, tournament_points= 0.0, tournament_list=[], opponents=[]):
         self.last_name = last_name
         self.first_name = first_name
         self.birth_date = birth_date
         self.gender = gender
-        self.score = None
+        self.score = 0.0
         self.ranking = None
         self.tournament_points = 0.0
-        self.tournament_list = [None]
+        self.tournament_list = []
         self.opponents = []
 
 

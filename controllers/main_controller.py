@@ -4,7 +4,6 @@ from .player_controller import PlayerController
 from .tournament_controller import TournamentController
 from .report_controller import ReportController
 from views.player_view import PlayerView
-import sys
 import os
 
 class MainController:
